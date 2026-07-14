@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1"
@@ -14,9 +15,70 @@
       content="The requested page could not be found."
     >
 
+    <meta
+      name="robots"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    >
+
+    <meta
+      name="googlebot"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    >
+
+    <meta
+      name="bingbot"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    >
+
+    <meta
+      name="theme-color"
+      content="#0d1117"
+    >
+
+    <meta
+      name="color-scheme"
+      content="dark"
+    >
+
+    <meta
+      name="format-detection"
+      content="telephone=no"
+    >
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png"
+    >
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    >
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png"
+    >
+
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      sizes="any"
+    >
+
+    <link
+      rel="manifest"
+      href="/site.webmanifest"
+    >
+
     <style>
       :root {
-        color-scheme: light dark;
+        color-scheme: dark;
         font-family:
           Inter,
           ui-sans-serif,
@@ -29,6 +91,10 @@
 
       * {
         box-sizing: border-box;
+      }
+
+      html {
+        background: #0d1117;
       }
 
       body {
@@ -55,6 +121,7 @@
         margin: 0 0 24px;
         font-size: clamp(1.3rem, 4vw, 2rem);
         font-weight: 500;
+        line-height: 1.25;
         color: #c9d1d9;
       }
 
@@ -68,6 +135,17 @@
 
       a {
         color: #58a6ff;
+        text-underline-offset: 3px;
+      }
+
+      a:hover {
+        color: #79c0ff;
+      }
+
+      a:focus-visible {
+        outline: 2px solid #58a6ff;
+        outline-offset: 4px;
+        border-radius: 2px;
       }
     </style>
   </head>
@@ -83,7 +161,9 @@
       </p>
 
       <p>
-        <a href="/">← Back to homepage</a>
+        <a href="/">
+          ← Back to homepage
+        </a>
       </p>
     </main>
   </body>

@@ -2,21 +2,198 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1"
     >
 
-    <title>ItsOnePage</title>
+    <title>ItsOnePage — Own Your Website</title>
 
     <meta
       name="description"
+      content="ItsOnePage is an open-source project for building fast, clean, privacy-friendly one-page websites without subscriptions, tracking, or vendor lock-in."
+    >
+
+    <meta
+      name="author"
+      content="AFEOL"
+    >
+
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
+
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
+
+    <link
+      rel="canonical"
+      href="https://afeol.com/"
+    >
+
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://afeol.com/"
+    >
+
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://afeol.com/"
+    >
+
+    <meta
+      name="theme-color"
+      content="#0d1117"
+    >
+
+    <meta
+      name="color-scheme"
+      content="dark"
+    >
+
+    <meta
+      name="format-detection"
+      content="telephone=no"
+    >
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png"
+    >
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    >
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png"
+    >
+
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      sizes="any"
+    >
+
+    <link
+      rel="manifest"
+      href="/site.webmanifest"
+    >
+
+    <meta
+      property="og:type"
+      content="website"
+    >
+
+    <meta
+      property="og:site_name"
+      content="ItsOnePage"
+    >
+
+    <meta
+      property="og:title"
+      content="ItsOnePage — Own Your Website"
+    >
+
+    <meta
+      property="og:description"
       content="Open-source one-page websites without subscriptions, tracking, or vendor lock-in."
     >
 
+    <meta
+      property="og:url"
+      content="https://afeol.com/"
+    >
+
+    <meta
+      property="og:locale"
+      content="en_US"
+    >
+
+    <meta
+      property="og:image"
+      content="https://afeol.com/android-chrome-512x512.png"
+    >
+
+    <meta
+      property="og:image:width"
+      content="512"
+    >
+
+    <meta
+      property="og:image:height"
+      content="512"
+    >
+
+    <meta
+      property="og:image:alt"
+      content="ItsOnePage"
+    >
+
+    <meta
+      name="twitter:card"
+      content="summary"
+    >
+
+    <meta
+      name="twitter:title"
+      content="ItsOnePage — Own Your Website"
+    >
+
+    <meta
+      name="twitter:description"
+      content="Open-source one-page websites without subscriptions, tracking, or vendor lock-in."
+    >
+
+    <meta
+      name="twitter:image"
+      content="https://afeol.com/android-chrome-512x512.png"
+    >
+
+    <meta
+      name="twitter:image:alt"
+      content="ItsOnePage"
+    >
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ItsOnePage",
+        "url": "https://afeol.com/",
+        "description": "An open-source project for building fast, clean, privacy-friendly one-page websites without subscriptions, tracking, or vendor lock-in.",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "creator": {
+          "@type": "Organization",
+          "name": "AFEOL",
+          "url": "https://afeol.com/",
+          "sameAs": [
+            "https://github.com/AfeolOrg"
+          ]
+        },
+        "sameAs": [
+          "https://github.com/AfeolOrg/ItsOnePage"
+        ]
+      }
+    </script>
+
     <style>
       :root {
-        color-scheme: light dark;
+        color-scheme: dark;
         font-family:
           Inter,
           ui-sans-serif,
@@ -29,6 +206,10 @@
 
       * {
         box-sizing: border-box;
+      }
+
+      html {
+        background: #0d1117;
       }
 
       body {
@@ -55,6 +236,7 @@
         margin: 0 0 32px;
         font-size: clamp(1.3rem, 4vw, 2rem);
         font-weight: 500;
+        line-height: 1.25;
         color: #c9d1d9;
       }
 
@@ -80,6 +262,17 @@
 
       a {
         color: #58a6ff;
+        text-underline-offset: 3px;
+      }
+
+      a:hover {
+        color: #79c0ff;
+      }
+
+      a:focus-visible {
+        outline: 2px solid #58a6ff;
+        outline-offset: 4px;
+        border-radius: 2px;
       }
     </style>
   </head>
@@ -96,17 +289,28 @@
       </p>
 
       <p>
+        Build fast, clean, privacy-friendly websites that you fully own
+        and can deploy anywhere.
+      </p>
+
+      <p>
         The project is currently in early development.
       </p>
 
       <p>
-        <a href="https://github.com/AfeolOrg/ItsOnePage">
+        <a
+          href="https://github.com/AfeolOrg/ItsOnePage"
+          rel="noopener noreferrer"
+        >
           View the project on GitHub
         </a>
       </p>
 
-      <section class="principle">
-        <strong>One Principle</strong>
+      <section
+        class="principle"
+        aria-labelledby="one-principle"
+      >
+        <strong id="one-principle">One Principle</strong>
 
         <p>
           If we recommend it, we use it ourselves first.
