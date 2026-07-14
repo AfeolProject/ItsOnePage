@@ -222,7 +222,7 @@
         },
         "sameAs": [
           "https://github.com/AfeolOrg/ItsOnePage",
-          "https://github.com/orgs/AfeolOrg/discussions"
+          "https://github.com/AfeolOrg/ItsOnePage/discussions"
         ]
       }
     </script>
@@ -271,7 +271,7 @@
         z-index: 0;
         overflow: hidden;
         pointer-events: none;
-        background-color: #020b14;
+        background: #020b14;
       }
 
       .background-image {
@@ -288,17 +288,17 @@
         inset: 0;
         background:
           radial-gradient(
-            circle at 50% 54%,
-            rgb(0 187 210 / 8%) 0%,
-            rgb(1 15 27 / 35%) 38%,
-            rgb(1 10 18 / 70%) 72%,
-            rgb(1 7 13 / 90%) 100%
+            circle at 50% 52%,
+            rgb(0 197 220 / 5%) 0%,
+            rgb(1 13 24 / 62%) 38%,
+            rgb(1 9 17 / 84%) 72%,
+            rgb(1 6 12 / 94%) 100%
           ),
           linear-gradient(
             90deg,
-            rgb(1 7 13 / 54%) 0%,
-            rgb(1 7 13 / 16%) 50%,
-            rgb(1 7 13 / 54%) 100%
+            rgb(1 6 12 / 76%) 0%,
+            rgb(1 8 15 / 55%) 50%,
+            rgb(1 6 12 / 76%) 100%
           );
       }
 
@@ -318,12 +318,12 @@
         padding: clamp(28px, 5vw, 56px);
         border: 1px solid rgb(255 255 255 / 11%);
         border-radius: 24px;
-        background: rgb(3 13 23 / 72%);
+        background: rgb(2 10 18 / 14%);
         box-shadow:
-          0 28px 90px rgb(0 0 0 / 45%),
+          0 28px 90px rgb(0 0 0 / 28%),
           inset 0 1px 0 rgb(255 255 255 / 5%);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
       }
 
       .eyebrow {
@@ -342,6 +342,7 @@
         line-height: 0.92;
         letter-spacing: -0.055em;
         text-wrap: balance;
+        text-shadow: 0 4px 30px rgb(0 0 0 / 44%);
       }
 
       .lead {
@@ -351,6 +352,7 @@
         line-height: 1.25;
         color: #d4dde7;
         text-wrap: balance;
+        text-shadow: 0 3px 22px rgb(0 0 0 / 52%);
       }
 
       .summary {
@@ -358,7 +360,8 @@
         margin: 0;
         font-size: clamp(1rem, 1.8vw, 1.15rem);
         line-height: 1.75;
-        color: #c5d0db;
+        color: #cbd6e0;
+        text-shadow: 0 2px 16px rgb(0 0 0 / 56%);
       }
 
       .actions {
@@ -374,7 +377,7 @@
         align-items: center;
         justify-content: center;
         padding: 0 18px;
-        border: 1px solid rgb(255 255 255 / 15%);
+        border: 1px solid rgb(255 255 255 / 18%);
         border-radius: 999px;
         font-weight: 700;
         text-decoration: none;
@@ -391,8 +394,10 @@
       }
 
       .button-secondary {
-        background: rgb(255 255 255 / 4%);
+        background: rgb(2 10 18 / 28%);
         color: #eef6fb;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
       }
 
       .button:hover {
@@ -401,7 +406,7 @@
 
       .button-secondary:hover {
         border-color: rgb(98 215 238 / 70%);
-        background: rgb(98 215 238 / 8%);
+        background: rgb(98 215 238 / 10%);
       }
 
       .button:focus-visible,
@@ -419,9 +424,12 @@
 
       .card {
         padding: 20px;
-        border: 1px solid rgb(255 255 255 / 9%);
+        border: 1px solid rgb(255 255 255 / 10%);
         border-radius: 16px;
-        background: rgb(255 255 255 / 4%);
+        background: rgb(2 10 18 / 24%);
+        box-shadow: 0 14px 40px rgb(0 0 0 / 12%);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
       }
 
       .card h2 {
@@ -433,12 +441,12 @@
       .card p {
         margin: 0;
         line-height: 1.65;
-        color: #bac7d3;
+        color: #c1cdd8;
       }
 
       .principle {
         padding-top: 28px;
-        border-top: 1px solid rgb(255 255 255 / 12%);
+        border-top: 1px solid rgb(255 255 255 / 14%);
       }
 
       .principle strong {
@@ -451,7 +459,7 @@
       .principle p {
         margin: 0;
         line-height: 1.7;
-        color: #c6d0da;
+        color: #cbd5df;
       }
 
       .footer {
@@ -461,9 +469,9 @@
         align-items: center;
         justify-content: space-between;
         padding-top: 24px;
-        border-top: 1px solid rgb(255 255 255 / 10%);
+        border-top: 1px solid rgb(255 255 255 / 12%);
         font-size: 0.9rem;
-        color: #9eabb8;
+        color: #aab6c2;
       }
 
       .footer-links {
@@ -501,10 +509,10 @@
           background:
             linear-gradient(
               180deg,
-              rgb(1 8 15 / 18%) 0%,
-              rgb(1 8 15 / 48%) 32%,
-              rgb(1 8 15 / 88%) 72%,
-              rgb(1 8 15 / 96%) 100%
+              rgb(1 7 13 / 58%) 0%,
+              rgb(1 7 13 / 72%) 34%,
+              rgb(1 7 13 / 89%) 72%,
+              rgb(1 6 12 / 97%) 100%
             );
         }
 
@@ -517,7 +525,9 @@
           gap: 22px;
           padding: 28px 22px;
           border-radius: 18px;
-          background: rgb(3 13 23 / 78%);
+          background: rgb(2 10 18 / 12%);
+          backdrop-filter: blur(3px);
+          -webkit-backdrop-filter: blur(3px);
         }
 
         h1 {
@@ -538,6 +548,7 @@
 
         .card {
           padding: 18px;
+          background: rgb(2 10 18 / 28%);
         }
 
         .footer {
@@ -567,7 +578,9 @@
       }
 
       @media (prefers-reduced-transparency: reduce) {
-        .shell {
+        .shell,
+        .card,
+        .button-secondary {
           background: #07131f;
           backdrop-filter: none;
           -webkit-backdrop-filter: none;
@@ -604,6 +617,7 @@
         .principle p,
         .footer {
           color: #000000;
+          text-shadow: none;
         }
 
         .actions {
@@ -752,7 +766,7 @@
           >
             <a
               class="text-link"
-              href="https://github.com/orgs/AfeolOrg/discussions"
+              href="https://github.com/AfeolOrg/ItsOnePage/discussions"
               target="_blank"
               rel="noopener noreferrer"
             >
