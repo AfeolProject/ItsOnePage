@@ -1,0 +1,35 @@
+/* TEAM */
+
+Organization: AFEOL
+Project: ItsOnePage
+Creator: Dragan Mitić
+Location: Serbia
+
+Website: https://afeol.com/
+GitHub Organization: https://github.com/AfeolOrg
+Project Repository: https://github.com/AfeolOrg/ItsOnePage
+LinkedIn: https://www.linkedin.com/in/dragan-mitic/
+Contact: afeol@proton.me
+
+/* PROJECT */
+
+Name: ItsOnePage
+Description: Open-source one-page websites without subscriptions, tracking, advertising, or vendor lock-in.
+Status: Early Development
+License: MIT
+
+/* PRINCIPLE */
+
+If we recommend it, we use it ourselves first.
+
+/* TECHNOLOGY */
+
+Standards: HTML5, CSS
+Hosting: Cloudflare Pages
+Source Control: GitHub
+Domain: afeol.com
+Language: English
+
+/* LAST UPDATE */
+
+2026-07-14
