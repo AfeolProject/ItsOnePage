@@ -253,80 +253,70 @@
       }
 
       body {
-        position: relative;
         min-height: 100vh;
         min-height: 100svh;
         margin: 0;
         overflow-x: hidden;
-        background: #020b14;
+        background: transparent;
         color: #f0f6fc;
-      }
-
-      body::before {
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        content: "";
-        background-color: #020b14;
-        background-image: url("/background-desktop.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      @supports (
-        background-image:
-          image-set(
-            url("/background-desktop.webp") type("image/webp")
-          )
-      ) {
-        body::before {
-          background-image:
-            image-set(
-              url("/background-desktop.webp") type("image/webp"),
-              url("/background-desktop.jpg") type("image/jpeg")
-            );
-        }
-      }
-
-      body::after {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        content: "";
-        pointer-events: none;
-        background:
-          radial-gradient(
-            circle at center,
-            rgb(1 16 29 / 18%) 0%,
-            rgb(1 10 18 / 60%) 58%,
-            rgb(1 7 13 / 90%) 100%
-          ),
-          linear-gradient(
-            90deg,
-            rgb(1 7 13 / 62%),
-            rgb(1 7 13 / 18%) 50%,
-            rgb(1 7 13 / 62%)
-          );
       }
 
       a {
         color: inherit;
       }
 
+      .background {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+        background-color: #020b14;
+      }
+
+      .background-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .background-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 50% 54%,
+            rgb(0 187 210 / 8%) 0%,
+            rgb(1 15 27 / 35%) 38%,
+            rgb(1 10 18 / 70%) 72%,
+            rgb(1 7 13 / 90%) 100%
+          ),
+          linear-gradient(
+            90deg,
+            rgb(1 7 13 / 54%) 0%,
+            rgb(1 7 13 / 16%) 50%,
+            rgb(1 7 13 / 54%) 100%
+          );
+      }
+
       .page {
+        position: relative;
+        z-index: 1;
         width: min(1180px, calc(100% - 40px));
         min-height: 100vh;
         min-height: 100svh;
         margin: 0 auto;
-        padding: clamp(24px, 5vh, 64px) 0;
+        padding: clamp(48px, 8vh, 96px) 0;
       }
 
       .shell {
         display: grid;
         gap: 28px;
         padding: clamp(28px, 5vw, 56px);
-        border: 1px solid rgb(255 255 255 / 10%);
+        border: 1px solid rgb(255 255 255 / 11%);
         border-radius: 24px;
         background: rgb(3 13 23 / 72%);
         box-shadow:
@@ -431,7 +421,7 @@
         padding: 20px;
         border: 1px solid rgb(255 255 255 / 9%);
         border-radius: 16px;
-        background: rgb(255 255 255 / 3%);
+        background: rgb(255 255 255 / 4%);
       }
 
       .card h2 {
@@ -488,28 +478,13 @@
       }
 
       @media (max-width: 1024px) {
-        body::before {
-          background-image: url("/background-tablet.jpg");
-          background-position: center;
-        }
-
-        @supports (
-          background-image:
-            image-set(
-              url("/background-tablet.webp") type("image/webp")
-            )
-        ) {
-          body::before {
-            background-image:
-              image-set(
-                url("/background-tablet.webp") type("image/webp"),
-                url("/background-tablet.jpg") type("image/jpeg")
-              );
-          }
+        .background-image {
+          object-position: center;
         }
 
         .page {
           width: min(760px, calc(100% - 40px));
+          padding: 40px 0 64px;
         }
 
         .grid {
@@ -518,46 +493,31 @@
       }
 
       @media (max-width: 640px) {
-        body::before {
-          background-image: url("/background-mobile.jpg");
-          background-position: center top;
+        .background-image {
+          object-position: center top;
         }
 
-        @supports (
-          background-image:
-            image-set(
-              url("/background-mobile.webp") type("image/webp")
-            )
-        ) {
-          body::before {
-            background-image:
-              image-set(
-                url("/background-mobile.webp") type("image/webp"),
-                url("/background-mobile.jpg") type("image/jpeg")
-              );
-          }
-        }
-
-        body::after {
+        .background-overlay {
           background:
             linear-gradient(
               180deg,
-              rgb(1 8 15 / 10%) 0%,
-              rgb(1 8 15 / 52%) 42%,
-              rgb(1 8 15 / 94%) 100%
+              rgb(1 8 15 / 18%) 0%,
+              rgb(1 8 15 / 48%) 32%,
+              rgb(1 8 15 / 88%) 72%,
+              rgb(1 8 15 / 96%) 100%
             );
         }
 
         .page {
           width: calc(100% - 20px);
-          padding: 10px 0 24px;
+          padding: 24px 0 40px;
         }
 
         .shell {
           gap: 22px;
           padding: 28px 22px;
           border-radius: 18px;
-          background: rgb(3 13 23 / 80%);
+          background: rgb(3 13 23 / 78%);
         }
 
         h1 {
@@ -615,14 +575,13 @@
       }
 
       @media print {
+        .background {
+          display: none;
+        }
+
         body {
           background: #ffffff;
           color: #000000;
-        }
-
-        body::before,
-        body::after {
-          display: none;
         }
 
         .page,
@@ -655,6 +614,54 @@
   </head>
 
   <body>
+    <div
+      class="background"
+      aria-hidden="true"
+    >
+      <picture>
+        <source
+          media="(max-width: 640px)"
+          srcset="/background-mobile.webp"
+          type="image/webp"
+        >
+
+        <source
+          media="(max-width: 640px)"
+          srcset="/background-mobile.jpg"
+          type="image/jpeg"
+        >
+
+        <source
+          media="(max-width: 1024px)"
+          srcset="/background-tablet.webp"
+          type="image/webp"
+        >
+
+        <source
+          media="(max-width: 1024px)"
+          srcset="/background-tablet.jpg"
+          type="image/jpeg"
+        >
+
+        <source
+          srcset="/background-desktop.webp"
+          type="image/webp"
+        >
+
+        <img
+          class="background-image"
+          src="/background-desktop.jpg"
+          alt=""
+          width="1536"
+          height="1024"
+          decoding="async"
+          fetchpriority="high"
+        >
+      </picture>
+
+      <div class="background-overlay"></div>
+    </div>
+
     <div class="page">
       <main class="shell">
         <p class="eyebrow">Open-source one-page websites</p>
