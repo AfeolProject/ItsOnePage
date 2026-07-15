@@ -66,49 +66,45 @@
           calc(100% - 32px)
         );
         margin: 0 auto;
-        padding: 64px 0;
+        padding: 26px 0 48px;
       }
 
       header {
-        max-width: 780px;
-        margin-bottom: 36px;
+        max-width: 760px;
+        margin-bottom: 18px;
       }
 
       h1 {
-        margin: 0 0 14px;
-        font-size: clamp(
-          2.7rem,
-          7vw,
-          5rem
-        );
-        line-height: 0.95;
-        letter-spacing: -0.05em;
+        margin: 0 0 6px;
+        font-size: 1.12rem;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
       }
 
       header > p {
         margin: 0;
         color: #bdcad5;
-        font-size: 1.08rem;
-        line-height: 1.7;
+        font-size: 0.9rem;
+        line-height: 1.5;
       }
 
       .stats {
         display: flex;
         flex-wrap: wrap;
-        gap: 9px;
-        margin-top: 22px;
+        gap: 7px;
+        margin-top: 12px;
       }
 
       .stat {
         display: inline-flex;
-        gap: 7px;
+        gap: 6px;
         align-items: center;
-        padding: 7px 11px;
+        padding: 6px 10px;
         border: 1px solid
           rgb(114 220 239 / 20%);
         border-radius: 999px;
         color: #a9bbc8;
-        font-size: 0.82rem;
+        font-size: 0.78rem;
       }
 
       .stat strong {
@@ -120,9 +116,9 @@
         grid-template-columns:
           repeat(
             auto-fill,
-            minmax(260px, 1fr)
+            minmax(220px, 1fr)
           );
-        gap: 20px;
+        gap: 16px;
         align-items: start;
       }
 
@@ -130,7 +126,7 @@
         overflow: hidden;
         border: 1px solid
           rgb(255 255 255 / 10%);
-        border-radius: 18px;
+        border-radius: 16px;
         background:
           rgb(6 20 32 / 88%);
         box-shadow:
@@ -176,7 +172,7 @@
         display: grid;
         place-content: center;
         gap: 8px;
-        padding: 24px;
+        padding: 22px;
         background:
           linear-gradient(
             135deg,
@@ -187,7 +183,7 @@
       }
 
       .card-placeholder strong {
-        font-size: 1.55rem;
+        font-size: 1.4rem;
       }
 
       .card-placeholder small,
@@ -196,37 +192,37 @@
       }
 
       .placeholder-label {
-        font-size: 0.7rem;
+        font-size: 0.66rem;
         font-weight: 700;
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
 
       .card-content {
-        padding: 18px;
+        padding: 15px;
       }
 
       .badges {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 13px;
+        gap: 5px;
+        margin-bottom: 11px;
       }
 
       .badges span {
-        padding: 4px 7px;
+        padding: 4px 6px;
         border: 1px solid
           rgb(114 220 239 / 28%);
         border-radius: 999px;
         color: #72dcef;
-        font-size: 0.64rem;
+        font-size: 0.59rem;
         font-weight: 700;
         text-transform: uppercase;
       }
 
       h2 {
         margin: 0;
-        font-size: 1.25rem;
+        font-size: 1.12rem;
         line-height: 1.25;
       }
 
@@ -240,9 +236,9 @@
       }
 
       .author {
-        margin: 6px 0 14px;
+        margin: 5px 0 11px;
         color: #8295a4;
-        font-size: 0.86rem;
+        font-size: 0.8rem;
       }
 
       .author-link {
@@ -251,12 +247,12 @@
 
       .description {
         display: -webkit-box;
-        min-height: 4.5em;
-        margin: 0 0 16px;
+        min-height: 4.35em;
+        margin: 0 0 13px;
         overflow: hidden;
         color: #bdcad5;
-        font-size: 0.92rem;
-        line-height: 1.5;
+        font-size: 0.84rem;
+        line-height: 1.45;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
       }
@@ -264,29 +260,29 @@
       .metadata {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 17px;
+        gap: 10px;
+        margin-bottom: 14px;
         color: #8295a4;
-        font-size: 0.78rem;
+        font-size: 0.72rem;
       }
 
       .actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
       }
 
       .button {
         display: inline-flex;
-        min-height: 38px;
+        min-height: 35px;
         align-items: center;
         justify-content: center;
-        padding: 0 13px;
+        padding: 0 11px;
         border: 1px solid
           rgb(255 255 255 / 15%);
         border-radius: 999px;
         color: #f4f8fb;
-        font-size: 0.82rem;
+        font-size: 0.76rem;
         font-weight: 700;
         text-decoration: none;
       }
@@ -308,17 +304,28 @@
         outline-offset: 3px;
       }
 
-      @media (min-width: 1180px) {
+      @media (min-width: 1200px) {
         .gallery {
           grid-template-columns:
-            repeat(4, minmax(0, 1fr));
+            repeat(5, minmax(0, 1fr));
         }
       }
 
       @media (
-        min-width: 700px
+        min-width: 760px
       ) and (
-        max-width: 1179px
+        max-width: 1199px
+      ) {
+        .gallery {
+          grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (
+        min-width: 480px
+      ) and (
+        max-width: 759px
       ) {
         .gallery {
           grid-template-columns:
@@ -326,13 +333,21 @@
         }
       }
 
-      @media (max-width: 699px) {
+      @media (max-width: 479px) {
         main {
           width: min(
             100% - 20px,
-            520px
+            440px
           );
-          padding: 38px 0;
+          padding: 22px 0 40px;
+        }
+
+        header {
+          margin-bottom: 16px;
+        }
+
+        h1 {
+          font-size: 1.12rem;
         }
 
         .gallery {
@@ -410,21 +425,17 @@
     <article class="card">
       
       <a
-        class="card-placeholder"
+        class="media-link"
         href="/templates/official/beginning/"
         aria-label="Open The Beginning"
       >
-        <span class="placeholder-label">
-          official
-        </span>
-
-        <strong>
-          The Beginning
-        </strong>
-
-        <small>
-          by AFEOL
-        </small>
+        <img
+          class="card-image"
+          src="/templates/official/beginning/previews/thumbnail.webp"
+          alt="The Beginning template preview"
+          loading="lazy"
+          decoding="async"
+        >
       </a>
     
 

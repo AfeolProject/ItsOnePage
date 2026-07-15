@@ -1,174 +1,475 @@
 # Template Specification
 
-## Purpose
+Version: 1.0
 
-Every ItsOnePage template is a completely self-contained website.
-
-A template can be copied, customized and deployed without any
-additional tooling.
-
-No build process is required.
-
-No framework is required.
-
-No dependency manager is required.
+Status: IN PROGRESS
 
 ---
 
-# Required Files
-
-Every template must contain:
+# Template Types
 
 ```text
-index.html
-README.md
-LICENSE
-VERSION
-CHANGELOG.md
-template.json
-preview.png
-thumbnail.webp
+Builder
+
+Custom
 ```
 
----
+## Builder
 
-# Directory Structure
+Generated through the Basic Builder.
+
+Rules:
+
+- Uses a predefined Builder Layout
+- Uses supported Builder Components
+- Produces static website files
+- Is always free
+- Requires no Builder runtime after export
+
+## Custom
+
+Designed and implemented independently.
+
+The author controls:
+
+- HTML
+- CSS
+- JavaScript
+- Assets
+- Responsive behavior
+- Accessibility
+- License
+- Price
+- Distribution
+
+A Custom Template may be:
 
 ```text
-template/
+Free
 
-├── index.html
-├── README.md
-├── LICENSE
-├── VERSION
-├── CHANGELOG.md
-├── template.json
-├── preview.png
-├── thumbnail.webp
-└── assets/
-```
+Premium
 
-Additional files may be included.
-
----
-
-# Template Metadata
-
-Every template provides a single metadata file.
-
-```text
-template.json
-```
-
-This file is consumed by the gallery generator.
-
-It is never edited by the generator.
-
----
-
-# Example
-
-```json
-{
-  "id": "official-beginning",
-  "name": "The Beginning",
-  "version": "0.1.0",
-
-  "category": "official",
-
-  "license": "MIT",
-
-  "author": {
-    "name": "AFEOL",
-    "url": "https://afeol.com"
-  },
-
-  "repository": "https://github.com/AfeolOrg/ItsOnePage",
-
-  "homepage": "https://showcase.itsonepage.pages.dev/",
-
-  "preview": "preview.png",
-
-  "thumbnail": "thumbnail.webp",
-
-  "responsive": true,
-
-  "price": "free",
-
-  "editorsChoice": true
-}
+Custom Work
 ```
 
 ---
 
 # Categories
 
-Supported categories are:
+```text
+Official
+
+Community
+
+Marketplace
+
+Archive
+```
+
+## Official
+
+Maintained or approved by the ItsOnePage project.
+
+## Community
+
+Published by an independent contributor and distributed free of charge.
+
+## Marketplace
+
+Published as a premium template, commercial product or custom-work offer.
+
+## Archive
+
+Deprecated or unsupported template preserved for reference.
+
+---
+
+# Required Source Files
+
+A published source template shall contain:
+
+```text
+index.html
+
+template.json
+
+README.md
+
+LICENSE
+
+VERSION
+
+CHANGELOG.md
+```
+
+Additional files are allowed.
+
+---
+
+# Recommended Structure
+
+```text
+template-name/
+
+├── index.html
+├── template.json
+├── README.md
+├── LICENSE
+├── VERSION
+├── CHANGELOG.md
+├── styles.css
+├── assets/
+├── previews/
+│   ├── preview.webp
+│   └── thumbnail.webp
+└── screenshots/
+    ├── desktop.webp
+    ├── tablet.webp
+    └── mobile.webp
+```
+
+Files not required by the template may be omitted.
+
+---
+
+# Marketplace Catalog Entry
+
+A premium Marketplace entry is not required to include source code.
+
+Recommended structure:
+
+```text
+template-name/
+
+├── template.json
+├── README.md
+├── LICENSE
+├── VERSION
+├── CHANGELOG.md
+├── previews/
+│   ├── preview.webp
+│   └── thumbnail.webp
+└── screenshots/
+```
+
+The entry may link to:
+
+- Live demo
+- Product page
+- Purchase page
+- Author website
+- Contact page
+- Custom-work request
+
+---
+
+# Template Manifest
+
+Every published template or catalog entry shall contain:
+
+```text
+template.json
+```
+
+Example:
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "official-beginning",
+  "name": "The Beginning",
+  "description": "A lightweight, responsive and privacy-friendly starting point for a one-page website.",
+  "version": "0.1.0",
+  "type": "builder",
+  "category": "official",
+  "price": "free",
+  "license": "MIT",
+  "profiles": [
+    "standard",
+    "privacy",
+    "zeroscript"
+  ],
+  "author": {
+    "name": "AFEOL",
+    "github": "https://github.com/AfeolOrg",
+    "website": "https://afeol.com/"
+  },
+  "repository": "https://github.com/AfeolOrg/ItsOnePage",
+  "liveDemo": "https://beta-transparent.itsonepage.pages.dev/",
+  "preview": "previews/preview.webp",
+  "thumbnail": "previews/thumbnail.webp",
+  "responsive": true,
+  "editorsChoice": true
+}
+```
+
+---
+
+# Required Manifest Fields
+
+```text
+schemaVersion
+
+id
+
+name
+
+description
+
+version
+
+type
+
+category
+
+price
+
+license
+
+author.name
+```
+
+---
+
+# Optional Manifest Fields
+
+```text
+profiles
+
+tags
+
+author.github
+
+author.website
+
+repository
+
+liveDemo
+
+purchaseUrl
+
+contactUrl
+
+preview
+
+thumbnail
+
+responsive
+
+editorsChoice
+```
+
+---
+
+# Allowed Type Values
+
+```text
+builder
+
+custom
+```
+
+---
+
+# Allowed Category Values
 
 ```text
 official
+
 community
+
 marketplace
+
 archive
 ```
 
 ---
 
-# Pricing
-
-Supported values are:
+# Allowed Price Values
 
 ```text
 free
-paid
+
+premium
+
+custom-work
 ```
 
----
-
-# Images
-
-Every template provides two images.
-
-## Preview
-
-Large image shown on the template page.
+Builder Templates shall use:
 
 ```text
-preview.png
+free
 ```
 
 ---
 
-## Thumbnail
+# Deployment Profiles
 
-Small image used by the gallery.
+Supported manifest values:
 
 ```text
-thumbnail.webp
+standard
+
+privacy
+
+zeroscript
+
+ultralite
+```
+
+## Standard
+
+General static-web output.
+
+## Privacy
+
+No tracking by default and minimal remote dependencies.
+
+## ZeroScript
+
+The generated website requires no JavaScript.
+
+## UltraLite
+
+Minimal output size and resource usage.
+
+A template may support multiple profiles.
+
+---
+
+# Preview Assets
+
+Recommended files:
+
+```text
+previews/preview.webp
+
+previews/thumbnail.webp
+```
+
+Recommended dimensions:
+
+```text
+Preview
+
+1600 × 1000
+
+Thumbnail
+
+800 × 500
+```
+
+Preview assets are gallery resources.
+
+They are not required runtime assets.
+
+---
+
+# Responsive Output
+
+A responsive template should support:
+
+```text
+Desktop
+
+Tablet
+
+Mobile
+```
+
+Responsive support shall be declared through:
+
+```json
+{
+  "responsive": true
+}
 ```
 
 ---
 
-# Assets
+# Local Assets
 
-Assets may contain:
+Templates should prefer local assets.
 
-- images
-- fonts
-- icons
-- videos
-- downloads
+External dependencies shall be documented.
 
-The internal organization is left to the template author.
+ZeroScript and privacy-oriented output should not depend on:
+
+- Remote fonts
+- CDN assets
+- Analytics
+- Tracking
+- Remote APIs
 
 ---
 
-# Design Principle
+# Builder Templates
 
-Templates are independent.
+Builder Templates shall:
 
-The gallery consumes metadata.
+- Be generated from a defined Builder Layout
+- Use supported Builder Components
+- Follow Builder export rules
+- Remain free
+- Remain independent after export
 
-Templates never depend on the gallery.
+---
 
-The gallery never modifies templates.
+# Custom Templates
+
+Custom Templates may use independent implementation choices.
+
+Authors remain responsible for:
+
+- Code quality
+- Accessibility
+- Security
+- External dependencies
+- Licensing
+- Pricing
+- Delivery
+- Support
+
+---
+
+# Validation
+
+A template is valid when:
+
+- Required files exist
+- `template.json` is valid JSON
+- Required manifest fields exist
+- Manifest values are supported
+- Template ID is unique
+- Referenced local files exist
+- Referenced local paths remain inside the template directory
+
+---
+
+# Output
+
+A Template represents either:
+
+```text
+A complete static website
+```
+
+or:
+
+```text
+A Marketplace catalog entry
+```
+
+---
+
+# Extensions
+
+```text
+Localized Variants
+
+Theme Variants
+
+Template Collections
+
+Additional Deployment Profiles
+```

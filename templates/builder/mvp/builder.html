@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    >
+
+    <title>ItsOnePage Basic Builder</title>
+
+    <meta
+      name="description"
+      content="A browser-based static website generator."
+    >
+
+    <meta
+      name="robots"
+      content="noindex, nofollow"
+    >
+
+    <link
+      rel="stylesheet"
+      href="./builder.css"
+    >
+  </head>
+
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">
+          ItsOnePage
+        </p>
+
+        <h1>Basic Builder</h1>
+      </div>
+
+      <div class="header-actions">
+        <button
+          class="button"
+          id="resetButton"
+          type="button"
+        >
+          Reset
+        </button>
+
+        <button
+          class="button button-primary"
+          id="exportHtmlButton"
+          type="button"
+        >
+          Export HTML
+        </button>
+
+        <button
+          class="button"
+          id="exportCssButton"
+          type="button"
+          disabled
+        >
+          Export CSS
+        </button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="inspector">
+        <form id="builderForm">
+          <section class="control-section">
+            <h2>Project</h2>
+
+            <label class="field">
+              <span>Website Name</span>
+
+              <input
+                id="siteName"
+                type="text"
+                value="My Website"
+              >
+            </label>
+          </section>
+
+          <section class="control-section">
+            <h2>Runtime</h2>
+
+            <div class="radio-group">
+              <label>
+                <input
+                  type="radio"
+                  name="runtime"
+                  value="standard"
+                  checked
+                >
+                Standard Web
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="runtime"
+                  value="tor-i2p"
+                >
+                Tor / I2P
+              </label>
+            </div>
+
+            <p
+              class="notice"
+              id="runtimeNotice"
+              hidden
+            >
+              JavaScript, remote assets and public-web SEO are
+              excluded from generated output.
+            </p>
+          </section>
+
+          <section class="control-section">
+            <h2>Website Type</h2>
+
+            <div class="radio-group">
+              <label>
+                <input
+                  type="radio"
+                  name="websiteType"
+                  value="onepage"
+                  checked
+                >
+                OnePage
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="websiteType"
+                  value="multipage"
+                >
+                MultiPage
+              </label>
+            </div>
+
+            <fieldset id="cssModeFieldset">
+              <legend>CSS Output</legend>
+
+              <div class="radio-group">
+                <label>
+                  <input
+                    type="radio"
+                    name="cssMode"
+                    value="embedded"
+                    checked
+                  >
+                  Embedded in HTML
+                </label>
+
+                <label>
+                  <input
+                    type="radio"
+                    name="cssMode"
+                    value="separate"
+                    disabled
+                  >
+                  Separate CSS file
+                </label>
+              </div>
+            </fieldset>
+          </section>
+
+          <section class="control-section">
+            <h2>Metadata</h2>
+
+            <div class="radio-group">
+              <label>
+                <input
+                  type="radio"
+                  name="metadata"
+                  value="no"
+                  checked
+                >
+                No
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  name="metadata"
+                  value="yes"
+                >
+                Yes
+              </label>
+            </div>
+
+            <div
+              class="dependent-controls"
+              id="metadataControls"
+              hidden
+            >
+              <label class="field">
+                <span>Description</span>
+
+                <textarea
+                  id="siteDescription"
+                  rows="3"
+                >A simple website generated with ItsOnePage.</textarea>
+              </label>
+
+              <label class="field">
+                <span>Author</span>
+
+                <input
+                  id="siteAuthor"
+                  type="text"
+                  value=""
+                >
+              </label>
+
+              <label class="field">
+                <span>Language</span>
+
+                <input
+                  id="siteLanguage"
+                  type="text"
+                  value="en"
+                >
+              </label>
+            </div>
+          </section>
+
+          <section class="control-section">
+            <h2>Background</h2>
+
+            <label class="field">
+              <span>State</span>
+
+              <select id="backgroundState">
+                <option value="none">None</option>
+                <option value="color">Color</option>
+                <option value="gradient">Gradient</option>
+                <option value="image" selected>Image</option>
+              </select>
+            </label>
+
+            <div
+              class="dependent-controls"
+              id="backgroundColorControls"
+              hidden
+            >
+              <label class="field">
+                <span>Color</span>
+
+                <input
+                  id="backgroundColor"
+                  type="color"
+                  value="#07111c"
+                >
+              </label>
+            </div>
+
+            <div
+              class="dependent-controls"
+              id="gradientControls"
+              hidden
+            >
+              <label class="field">
+                <span>Gradient Type</span>
+
+                <select id="gradientType">
+                  <option value="linear">Linear</option>
+                  <option value="radial">Radial</option>
+                </select>
+              </label>
+
+              <div class="field-row">
+                <label class="field">
+                  <span>Start</span>
+
+                  <input
+                    id="gradientStart"
+                    type="color"
+                    value="#12344a"
+                  >
+                </label>
+
+                <label class="field">
+                  <span>End</span>
+
+                  <input
+                    id="gradientEnd"
+                    type="color"
+                    value="#07111c"
+                  >
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Angle</span>
+
+                <input
+                  id="gradientAngle"
+                  type="range"
+                  min="0"
+                  max="360"
+                  value="135"
+                >
+              </label>
+            </div>
+
+            <div
+              class="dependent-controls"
+              id="backgroundImageControls"
+            >
+              <label class="field">
+                <span>Desktop Image</span>
+
+                <input
+                  id="desktopImage"
+                  type="file"
+                  accept="image/*"
+                >
+              </label>
+
+              <label class="field">
+                <span>Tablet Image</span>
+
+                <input
+                  id="tabletImage"
+                  type="file"
+                  accept="image/*"
+                >
+              </label>
+
+              <label class="field">
+                <span>Mobile Image</span>
+
+                <input
+                  id="mobileImage"
+                  type="file"
+                  accept="image/*"
+                >
+              </label>
+
+              <label class="field">
+                <span>Position</span>
+
+                <select id="backgroundPosition">
+                  <option value="left top">Top Left</option>
+                  <option value="center top">Top Center</option>
+                  <option value="right top">Top Right</option>
+                  <option value="left center">Center Left</option>
+                  <option value="center center" selected>Center</option>
+                  <option value="right center">Center Right</option>
+                  <option value="left bottom">Bottom Left</option>
+                  <option value="center bottom">Bottom Center</option>
+                  <option value="right bottom">Bottom Right</option>
+                </select>
+              </label>
+
+              <div class="offset-control">
+                <span>Horizontal Offset</span>
+
+                <div class="field-row">
+                  <input
+                    id="horizontalOffset"
+                    type="number"
+                    min="-100"
+                    max="100"
+                    value="0"
+                  >
+
+                  <div class="radio-group radio-inline">
+                    <label>
+                      <input
+                        type="radio"
+                        name="horizontalUnit"
+                        value="%"
+                        checked
+                      >
+                      %
+                    </label>
+
+                    <label>
+                      <input
+                        type="radio"
+                        name="horizontalUnit"
+                        value="px"
+                      >
+                      px
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="offset-control">
+                <span>Vertical Offset</span>
+
+                <div class="field-row">
+                  <input
+                    id="verticalOffset"
+                    type="number"
+                    min="-100"
+                    max="100"
+                    value="0"
+                  >
+
+                  <div class="radio-group radio-inline">
+                    <label>
+                      <input
+                        type="radio"
+                        name="verticalUnit"
+                        value="%"
+                        checked
+                      >
+                      %
+                    </label>
+
+                    <label>
+                      <input
+                        type="radio"
+                        name="verticalUnit"
+                        value="px"
+                      >
+                      px
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <label class="field">
+                <span>Overlay</span>
+
+                <input
+                  id="overlay"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="35"
+                >
+              </label>
+            </div>
+          </section>
+
+          <section class="control-section">
+            <h2>Panel</h2>
+
+            <label class="field">
+              <span>State</span>
+
+              <select id="panelState">
+                <option value="none">None</option>
+                <option value="solid">Solid</option>
+                <option value="glass" selected>Glass</option>
+              </select>
+            </label>
+
+            <div
+              class="dependent-controls"
+              id="panelControls"
+            >
+              <label class="field">
+                <span>Alignment</span>
+
+                <select id="panelAlignment">
+                  <option value="flex-start">Left</option>
+                  <option value="center" selected>Center</option>
+                  <option value="flex-end">Right</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Opacity</span>
+
+                <input
+                  id="panelOpacity"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="58"
+                >
+              </label>
+
+              <label class="field">
+                <span>Blur</span>
+
+                <input
+                  id="panelBlur"
+                  type="range"
+                  min="0"
+                  max="40"
+                  value="8"
+                >
+              </label>
+            </div>
+          </section>
+
+          <section class="control-section">
+            <h2>Typography</h2>
+
+            <label class="field">
+              <span>Heading</span>
+
+              <input
+                id="heading"
+                type="text"
+                value="The Beginning"
+              >
+            </label>
+
+            <label class="field">
+              <span>Subheading</span>
+
+              <input
+                id="subheading"
+                type="text"
+                value="A simple starting point for a website you fully own."
+              >
+            </label>
+
+            <label class="field">
+              <span>Body</span>
+
+              <textarea
+                id="bodyText"
+                rows="5"
+              >A lightweight, responsive and privacy-friendly foundation that can be deployed almost anywhere.</textarea>
+            </label>
+
+            <label class="field">
+              <span>Text Alignment</span>
+
+              <select id="textAlignment">
+                <option value="left" selected>Left</option>
+                <option value="center">Center</option>
+                <option value="right">Right</option>
+              </select>
+            </label>
+
+            <div class="field-row">
+              <label class="field">
+                <span>Text Color</span>
+
+                <input
+                  id="textColor"
+                  type="color"
+                  value="#fffaf4"
+                >
+              </label>
+
+              <label class="field">
+                <span>Accent Color</span>
+
+                <input
+                  id="accentColor"
+                  type="color"
+                  value="#ffd18f"
+                >
+              </label>
+            </div>
+          </section>
+
+          <section class="control-section">
+            <h2>Buttons</h2>
+
+            <label class="field">
+              <span>State</span>
+
+              <select id="buttonsState">
+                <option value="none">None</option>
+                <option value="one" selected>One</option>
+                <option value="two">Two</option>
+              </select>
+            </label>
+
+            <div
+              class="dependent-controls"
+              id="primaryButtonControls"
+            >
+              <label class="field">
+                <span>Primary Label</span>
+
+                <input
+                  id="primaryLabel"
+                  type="text"
+                  value="View Project"
+                >
+              </label>
+
+              <label class="field">
+                <span>Primary URL</span>
+
+                <input
+                  id="primaryUrl"
+                  type="url"
+                  value="https://example.com/"
+                >
+              </label>
+            </div>
+
+            <div
+              class="dependent-controls"
+              id="secondaryButtonControls"
+              hidden
+            >
+              <label class="field">
+                <span>Secondary Label</span>
+
+                <input
+                  id="secondaryLabel"
+                  type="text"
+                  value="Contact"
+                >
+              </label>
+
+              <label class="field">
+                <span>Secondary URL</span>
+
+                <input
+                  id="secondaryUrl"
+                  type="url"
+                  value="https://example.com/contact"
+                >
+              </label>
+            </div>
+          </section>
+        </form>
+      </aside>
+
+      <section class="preview-area">
+        <div class="preview-toolbar">
+          <strong>Live Preview</strong>
+
+          <div class="preview-sizes">
+            <button
+              class="preview-size is-active"
+              type="button"
+              data-preview-width="100%"
+            >
+              Desktop
+            </button>
+
+            <button
+              class="preview-size"
+              type="button"
+              data-preview-width="768px"
+            >
+              Tablet
+            </button>
+
+            <button
+              class="preview-size"
+              type="button"
+              data-preview-width="390px"
+            >
+              Mobile
+            </button>
+          </div>
+        </div>
+
+        <div class="preview-stage">
+          <iframe
+            id="previewFrame"
+            title="Generated website preview"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <script src="./builder.js"></script>
+  </body>
+</html>

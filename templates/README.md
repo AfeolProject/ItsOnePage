@@ -1,266 +1,323 @@
-# ItsOnePage Template Gallery
+# ItsOnePage Templates
 
-ItsOnePage is designed as an open ecosystem for one-page websites.
+Version: 1.0
 
-The project encourages a community-driven collection of templates where every author receives proper attribution, every website remains fully owned by its creator, and every template follows the same core principles:
-
-- Ownership
-- Simplicity
-- Privacy
-- Performance
-- Openness
-
-The goal is not to build another website builder.
-
-The goal is to build a collection of templates that anyone can deploy anywhere while remaining in complete control of their own website.
+Status: IN PROGRESS
 
 ---
 
-## Gallery Structure
+# Purpose
+
+The Templates subsystem defines how websites are represented, generated, published and distributed within the ItsOnePage ecosystem.
+
+The system consists of two independent parts:
+
+- Basic Builder
+- Custom Templates
+
+Both produce portable static websites.
+
+---
+
+# Architecture
 
 ```text
-templates/
+Templates
 
-├── official/
-├── community/
-├── marketplace/
-└── archive/
+├── Basic Builder
+│
+│   Browser-based generator
+│
+│   Generates free static websites
+│
+└── Custom Templates
+
+    Independently developed
+
+    Free or Premium
 ```
 
-### Official
+---
 
-Templates maintained by the ItsOnePage project.
+# Basic Builder
 
-Official templates represent the project's design philosophy, coding standards, accessibility expectations, and deployment principles.
+The Basic Builder is a browser-based website generator.
 
-### Community
+It allows users to configure predefined layouts without writing code.
 
-Free templates created and maintained by community contributors.
+The generated website belongs entirely to its owner.
 
-Every published community template should clearly credit its author and may include links to the author's:
+The Builder itself is always free.
 
-- GitHub profile
-- Website
-- Portfolio
-- LinkedIn profile
-- Donation page
+Generated output is intended for static deployment.
 
-### Marketplace
+Typical output:
 
-A curated catalog of premium templates created by independent authors.
+```text
+index.html
+assets/
+```
 
-ItsOnePage does not host or distribute paid template source code.
+or
 
-Marketplace entries contain public metadata, preview images, live demos, documentation links, and links to the author's own store or product page.
+```text
+index.html
+about.html
+contact.html
+styles.css
+assets/
+```
 
-Authors remain responsible for:
+depending on the selected website type.
 
-- Source-code distribution
+---
+
+# Runtime Profile
+
+The Builder supports runtime profiles.
+
+Initial profiles:
+
+```text
+Standard Web
+
+Tor / I2P
+```
+
+A runtime profile defines runtime restrictions.
+
+It does not define appearance.
+
+---
+
+# Website Types
+
+The Builder supports:
+
+```text
+OnePage
+
+MultiPage
+```
+
+## OnePage
+
+Produces a single HTML document.
+
+CSS is embedded inside the HTML document.
+
+## MultiPage
+
+Produces multiple HTML documents.
+
+CSS may be embedded or generated as a separate local stylesheet.
+
+---
+
+# Custom Templates
+
+Custom Templates are independently implemented.
+
+Their authors control:
+
+- HTML
+- CSS
+- JavaScript
+- Design
 - Licensing
 - Pricing
-- Payments
-- Support
-- Updates
+- Distribution
 
-### Archive
-
-Templates that are outdated, unsupported, replaced, or no longer recommended may be moved to the archive.
-
-Archived templates remain available for project history and reference but should not be treated as current recommendations.
-
----
-
-## Template Directory Structure
-
-A template should follow this general structure:
+Custom Templates may be:
 
 ```text
-template-name/
+Free
 
-├── README.md
-├── LICENSE
-├── index.html
-├── assets/
-│   ├── desktop/
-│   ├── tablet/
-│   └── mobile/
-├── preview.webp
-├── preview-tablet.webp
-└── preview-mobile.webp
+Premium
+
+Commercial
+
+Custom Work
 ```
-
-Additional files are allowed when they improve usability, compatibility, documentation, or accessibility.
 
 ---
 
-## Template Information
+# Gallery
 
-Each template should include a `README.md` containing at least:
+The Template Gallery is generated automatically.
+
+Source:
 
 ```text
-Template
-Description
-Author
-GitHub
-Live Demo
-License
-Version
+template.json
 ```
 
-Optional author links may include:
+↓
 
-- Website
-- Portfolio
-- LinkedIn
-- Mastodon
-- X
-- Donation page
-- Purchase page
+```text
+generate-gallery.mjs
+```
 
-The purpose of attribution is to ensure that contributors receive visible credit for their work.
+↓
 
----
+```text
+gallery/index.html
+```
 
-## Responsive Design
-
-Templates should provide a usable and consistent experience on:
-
-- Desktop
-- Tablet
-- Mobile
-
-Responsive preview images are strongly encouraged.
-
-A template should not require a specific device, browser, hosting provider, or proprietary platform unless that limitation is clearly documented.
+The gallery itself is completely static.
 
 ---
 
-## Gallery Entries
+# Template Metadata
 
-A gallery entry may include:
+Each template provides:
 
-- Template name
-- Short description
-- Preview image
-- Author
-- GitHub profile
-- Website
-- Live demo
-- License
-- Version
-- Source link
-- Purchase link
+```text
+template.json
+```
 
-Free templates may link directly to their source code.
+Metadata is used for:
 
-Marketplace templates should link to an external live demo or the author's own product page.
+- Gallery generation
+- Search
+- Filtering
+- Validation
+
+The gallery never modifies templates.
 
 ---
 
-## Featured Templates
+# Builder
 
-Outstanding templates may be highlighted by the project.
+The Builder is specified separately.
 
-Possible editorial categories include:
+Primary documents:
 
-- Featured Template
-- Template of the Month
-- Editor's Choice
-- Community Favorite
+```text
+builder/
 
-Featured placement does not transfer ownership of the template.
+README.md
 
-The original author remains fully credited and retains control according to the template's license.
+BUILDER-SPECIFICATION.md
 
----
+BUILDER-UI-SPECIFICATION.md
 
-## Design Principles
+RULE-ENGINE.md
 
-Templates should reflect the core philosophy of ItsOnePage.
+VALIDATION-RULES.md
 
-They are encouraged to be:
+EXPORT-SPECIFICATION.md
 
-- Lightweight
-- Responsive
-- Accessible
-- Privacy-friendly
-- Static-first
-- Fast
-- Simple
-- Easy to customize
-- Easy to deploy
-
-Templates should avoid:
-
-- Tracking
-- Advertisements
-- Hidden external dependencies
-- Vendor lock-in
-- Unnecessary JavaScript
-- Unnecessary frameworks
-- Misleading claims
-- Undocumented third-party services
+COMPONENTS.md
+```
 
 ---
 
-## Free Templates
+# Components
 
-Free templates should include their source code and a clearly stated license.
+Builder components are documented independently.
 
-Authors should receive visible attribution in the template documentation and gallery entry.
+Each component uses the same document structure.
 
-A free template may link to the author's website, GitHub profile, portfolio, or other professional page.
+```text
+Component
+
+State
+
+Properties
+
+Defaults
+
+Validation
+
+Dependencies
+
+Output
+
+Extensions
+```
+
+Initial components:
+
+```text
+Background
+
+Panel
+
+Typography
+
+Buttons
+
+Footer
+
+Metadata
+
+Export
+```
 
 ---
 
-## Marketplace Templates
+# Rule Engine
 
-Marketplace templates remain under the control of their authors.
+Builder behavior is driven by rules.
 
-The ItsOnePage repository should contain only public catalog information, such as:
+Example:
 
-- Metadata
-- Preview images
-- Live demo links
-- Documentation links
-- Product links
-- Author information
+```text
+IF Website Type = OnePage
 
-Paid source code should not be committed to this repository.
+THEN
+
+CSS Output = Embedded
+
+CSS selector = Disabled
+```
+
+Example:
+
+```text
+IF Runtime = Tor / I2P
+
+THEN
+
+JavaScript = Disabled
+
+SEO = Hidden
+```
 
 ---
 
-## Licensing
+# Generated Websites
 
-Every template defines its own license.
+Generated websites are static.
 
-Users must review the template license before using, modifying, redistributing, or selling derivative work.
+They require no Builder runtime.
 
-The presence of a template in the gallery does not override its individual license.
+Users may host them on any compatible static web server.
 
 ---
 
-## Contributing
+# Ownership
 
-Contributors of all experience levels are welcome.
+Generated websites belong entirely to their owners.
 
-Templates may represent:
+Users are never required to:
 
-- Personal websites
-- Portfolios
-- Digital business cards
-- Product pages
-- Small businesses
-- Documentation
-- Events
-- Restaurants
-- Local services
-- Open-source projects
-- Coming-soon pages
-- Experimental designs
+- Maintain a Builder account
+- Use ItsOnePage hosting
+- Continue using the Builder
+- Purchase a subscription
 
-Create something useful.
+---
 
-Share it with the community.
+# Principle
 
-Help more people own their websites.
+```text
+Generate.
+
+Download.
+
+Publish.
+
+Own.
+```

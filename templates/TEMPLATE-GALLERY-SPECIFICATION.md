@@ -1,159 +1,379 @@
 # Template Gallery Specification
 
-## Purpose
+Version: 1.0
 
-The ItsOnePage Template Gallery is the official catalog of templates
-available for the project.
-
-Its purpose is to provide a simple, discoverable, and consistent
-experience for both users and template authors.
-
-The gallery is generated automatically from template metadata.
-
-No gallery page should require manual editing when a new template
-is added.
+Status: IN PROGRESS
 
 ---
 
-# Gallery Categories
+# Generation
 
-Templates are grouped into four categories.
+```text
+template.json
+        ↓
+generate-gallery.mjs
+        ↓
+gallery/index.html
+```
 
-## Official
+The gallery is statically generated.
 
-Templates maintained by the ItsOnePage project.
-
-These templates define the quality and architectural direction of
-the project.
-
----
-
-## Community
-
-Free templates created and maintained by the community.
-
-Community templates remain fully owned by their respective authors.
+No database or server-side rendering is required.
 
 ---
 
-## Marketplace
+# Source
 
-Commercial templates.
+The gallery reads valid template manifests found inside:
 
-ItsOnePage does not distribute paid template source code.
+```text
+templates/
+```
 
-Marketplace entries exist only to introduce templates and direct
-visitors to the author's official website.
+The generator shall ignore:
+
+```text
+templates/gallery/
+
+templates/implementation/
+```
 
 ---
 
-## Archive
+# Supported Template Types
 
-Deprecated templates preserved for historical reference.
+```text
+Builder
 
-Archived templates are not recommended for new projects.
+Custom
+```
+
+---
+
+# Supported Categories
+
+```text
+Official
+
+Community
+
+Marketplace
+
+Archive
+```
+
+---
+
+# Gallery Card
+
+A card may display:
+
+- Thumbnail
+- Category
+- Type
+- Price
+- Deployment profiles
+- Editor's Choice
+- Template name
+- Author
+- Description
+- Version
+- License
+- Responsive status
+
+---
+
+# Card Actions
+
+Available actions may include:
+
+```text
+Details
+
+Live Demo
+
+Source
+
+Purchase
+
+Contact
+```
+
+An action shall be hidden when its URL is unavailable or invalid.
+
+---
+
+# Details Action
+
+The Details action opens the template directory.
+
+For a source template, the directory should contain:
+
+```text
+index.html
+```
+
+A Marketplace catalog entry may provide another detail page instead.
+
+---
+
+# Badges
+
+Supported badges include:
+
+```text
+Official
+
+Community
+
+Marketplace
+
+Archive
+
+Builder
+
+Custom
+
+Free
+
+Premium
+
+Custom Work
+
+Editor's Choice
+
+Standard
+
+Privacy
+
+ZeroScript
+
+UltraLite
+
+Responsive
+```
+
+Only applicable badges shall be displayed.
 
 ---
 
 # Editor's Choice
 
-The gallery may feature one template as the current
-Editor's Choice.
-
-Editor's Choice represents a template selected by the
-ItsOnePage maintainers to showcase the capabilities and
-design philosophy of the project.
+Editor's Choice is selected by ItsOnePage maintainers.
 
 It is an editorial recommendation.
 
-It is not a competition.
+It is not:
 
-It is not determined by votes, download counts, popularity,
-or any ranking algorithm.
+- A competition
+- A popularity ranking
+- A download ranking
+- A time-limited award
 
-Selection is based on overall quality, craftsmanship,
-usability, responsiveness, accessibility, originality,
-and suitability as an example for the community.
+A template remains Editor's Choice until another template is selected.
 
-There is no fixed rotation schedule.
-
-A template may remain Editor's Choice until another
-template is selected.
-
-Both Official and Community templates may become
-Editor's Choice.
-
-Commercial templates may also be selected if their
-authors explicitly agree.
+Only one active Editor's Choice is recommended.
 
 ---
 
-# Author Attribution
+# Search
 
-Every gallery entry displays:
+Search runs inside the browser.
 
+Searchable fields include:
+
+- Name
+- Description
+- Author
+- Type
+- Category
+- Price
+- Profiles
+- Tags
+
+Search shall not require a server request.
+
+---
+
+# Filters
+
+Initial filters:
+
+```text
+All
+
+Official
+
+Community
+
+Marketplace
+
+Builder
+
+Custom
+
+Editor's Choice
+```
+
+Additional filters may include:
+
+```text
+Free
+
+Premium
+
+Privacy
+
+ZeroScript
+
+UltraLite
+```
+
+Filtering runs inside the browser.
+
+---
+
+# Result Count
+
+The gallery shall display the number of visible templates.
+
+Examples:
+
+```text
+1 template
+
+4 templates
+```
+
+---
+
+# Empty State
+
+When no card matches the current search and filter:
+
+```text
+No templates match the current search and filter.
+```
+
+---
+
+# Sorting
+
+Default sorting:
+
+```text
+Editor's Choice first
+
+Then alphabetical by template name
+```
+
+Future sorting modes may include:
+
+```text
+Alphabetical
+
+Newest
+
+Recently Updated
+```
+
+---
+
+# Images
+
+When a valid thumbnail exists, the card displays it.
+
+When no valid thumbnail exists, the card displays a generated placeholder containing:
+
+- Category
 - Template name
 - Author
-- License
-- Version
-- Category
-- Preview
-- Thumbnail
-- Repository or Project URL
-
-Authors always retain full ownership of their work.
 
 ---
 
-# Showcase
+# Marketplace
 
-The current Editor's Choice is published at:
+Marketplace source code is not required to be stored in the repository.
 
-https://showcase.itsonepage.pages.dev/
+Marketplace cards may link to:
 
-The showcase website belongs to the template author.
+- Live demo
+- Product page
+- Purchase page
+- Contact page
+- Custom-work request
 
-Authors may include their own:
+ItsOnePage does not manage:
 
-- copyright
-- branding
-- website
-- portfolio
-- commercial information
-
-The only additional requirement for Editor's Choice templates
-is that the footer must include:
-
-Powered by ItsOnePage
-
-and
-
-View Project
-
-linking to the official ItsOnePage repository.
+- Payments
+- Licensing agreements
+- Delivery
+- Refunds
+- Support
 
 ---
 
-# Automation
+# Editor's Choice Showcase
 
-The gallery is generated automatically.
+The active Editor's Choice may be deployed as the public showcase.
 
-Each template provides a manifest describing its metadata.
+The showcase may contain the author's:
 
-The generator scans all template manifests and builds
-the gallery without manual editing.
+- Branding
+- Portfolio
+- Website
+- GitHub profile
+- LinkedIn profile
+- Commercial information
+- Contact information
 
-Adding a new template must never require modifying
-gallery source code.
+The author retains ownership.
 
 ---
 
-# Design Principle
+# Validation
 
-The gallery exists to highlight templates.
+The generator shall reject:
 
-It does not judge authors.
+- Invalid JSON
+- Missing required fields
+- Unsupported type values
+- Unsupported category values
+- Unsupported price values
+- Unsupported profile values
+- Duplicate template IDs
+- Local paths escaping the template directory
 
-It does not rank templates.
+Builder Templates with a non-free price shall be rejected.
 
-It simply makes high-quality work easy to discover.
+---
+
+# Output
+
+Generated file:
+
+```text
+templates/gallery/index.html
+```
+
+The generated file shall contain:
+
+- Static HTML
+- Static CSS
+- Client-side search
+- Client-side filters
+- No external runtime dependency
+
+---
+
+# Extensions
+
+```text
+Sorting Controls
+
+Template Collections
+
+Profile Filters
+
+Pagination
+```

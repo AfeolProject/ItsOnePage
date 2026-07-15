@@ -4,9 +4,15 @@
   "name": "The Beginning",
   "description": "A lightweight, responsive and privacy-friendly starting point for a one-page website.",
   "version": "0.1.0",
+  "type": "builder",
   "category": "official",
   "price": "free",
   "license": "MIT",
+  "profiles": [
+    "standard",
+    "privacy",
+    "zeroscript"
+  ],
   "author": {
     "name": "AFEOL",
     "github": "https://github.com/AfeolOrg",
@@ -14,8 +20,8 @@
   },
   "repository": "https://github.com/AfeolOrg/ItsOnePage",
   "liveDemo": "https://beta-transparent.itsonepage.pages.dev/",
-  "preview": "preview.png",
-  "thumbnail": "thumbnail.webp",
+  "preview": "previews/preview.webp",
+  "thumbnail": "previews/thumbnail.webp",
   "responsive": true,
   "editorsChoice": true
 }

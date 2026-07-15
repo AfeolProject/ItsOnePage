@@ -1,125 +1,263 @@
-# ItsOnePage Template Roadmap
+# Template Roadmap
 
 Version: 1.0
 
-Status: LIVING DOCUMENT
+Status: IN PROGRESS
 
 ---
 
-# Purpose
+# Phase 1 — Template Foundation
 
-This roadmap describes the planned evolution of the official ItsOnePage template ecosystem.
+Status:
 
-Unlike the Foundation Specifications, this document evolves as the project grows.
+```text
+COMPLETE
+```
 
----
+Delivered:
 
-# Phase 1
-
-Foundation
-
-Status: Complete
-
-Deliverables:
-
-- Template Specification
-- Repository Specification
-- Gallery Specification
-- Submission Specification
+- Template terminology
+- Builder and Custom template separation
+- Template manifest
+- Official template structure
+- Preview assets
+- Editor's Choice rules
 
 ---
 
-# Phase 2
+# Phase 2 — Gallery Foundation
 
-Official Template Infrastructure
+Status:
 
-Status: In Progress
+```text
+COMPLETE
+```
 
-Deliverables:
+Delivered:
 
-- Official Template Guide
-- Official Template Lifecycle
-- Official template directory structure
-- Template versioning
-- Template changelog
+- Static gallery generator
+- Responsive card grid
+- Manifest validation
+- Thumbnail support
+- Placeholder support
+- Editor's Choice sorting
+- Client-side search
+- Client-side filters
+- Result count
+- Empty state
 
 ---
 
-# Phase 3
+# Phase 3 — First Official Template
 
+Status:
+
+```text
+COMPLETE
+```
+
+Delivered:
+
+```text
 The Beginning
+```
 
-Deliverables:
+Includes:
 
-- First official template
-- Responsive assets
-- Responsive previews
+- Responsive layout
+- Desktop background
+- Tablet background
+- Mobile background
+- Preview
+- Thumbnail
+- Manifest
+- Documentation
+- License
+- Version
+- Change log
+
+---
+
+# Phase 4 — Basic Builder Foundation
+
+Status:
+
+```text
+COMPLETE
+```
+
+Delivered:
+
+- Builder philosophy
+- Builder specification
+- Builder UI specification
+- Rule Engine
+- Validation rules
+- Export specification
+- Component model
+- Initial component specifications
+- Hero Layout specification
+
+---
+
+# Phase 5 — Basic Builder MVP
+
+Status:
+
+```text
+IN PROGRESS
+```
+
+Initial implementation:
+
+```text
+templates/builder/mvp/
+
+├── BUILDER-MVP.md
+├── builder.html
+├── builder.css
+└── builder.js
+```
+
+Delivered or active:
+
+- Browser-only operation
+- Property Inspector
+- Live preview
+- Standard Web profile
+- Tor / I2P profile
+- OnePage mode
+- MultiPage mode
+- Metadata control
+- Background states
+- Background image upload
+- Panel states
+- Typography controls
+- Button controls
+- HTML export
+- CSS export foundation
+
+---
+
+# Phase 6 — Builder Hardening
+
+Status:
+
+```text
+PLANNED
+```
+
+Planned:
+
+- Complete Rule Engine enforcement
+- Complete validation
+- Background anchor support
+- Background offset support
+- Responsive image output
+- Local asset export
+- MultiPage generation
+- Project configuration export
+- Error handling
 - Accessibility review
-- SEO review
-- Live deployment
 
 ---
 
-# Phase 4
+# Phase 7 — Layout Library
 
-Current Showcase
+Status:
 
-Deliverables:
+```text
+PLANNED
+```
 
-- Showcase runtime
-- Automatic footer
+Initial layouts:
+
+```text
+Hero
+
+Split
+
+Centered
+
+Glass
+
+Portfolio
+
+Landing
+
+Article
+```
+
+Only implemented layouts shall be selectable in the Builder.
+
+---
+
+# Phase 8 — Community Templates
+
+Status:
+
+```text
+PLANNED
+```
+
+Planned:
+
+- Community submission rules
+- Manifest validation
 - Author attribution
-- Showcase deployment
-- Showcase documentation
-
----
-
-# Phase 5
-
-Gallery
-
-Deliverables:
-
-- Official Gallery
-- Community Gallery
-- Marketplace Catalog
-- Archive
-
----
-
-# Phase 6
-
-Community
-
-Deliverables:
-
-- Submission workflow
 - Review workflow
-- Editorial workflow
-- Showcase selection
+- Gallery publication
 
 ---
 
-# Phase 7
+# Phase 9 — Marketplace
 
-Marketplace
+Status:
 
-Deliverables:
+```text
+PLANNED
+```
 
-- Marketplace metadata
-- Product cards
-- External purchase links
-- Author pages
+Planned:
+
+- Premium catalog entries
+- Purchase links
+- Contact links
+- Custom-work requests
+- Marketplace badges
+
+ItsOnePage will not process payments in the initial Marketplace model.
 
 ---
 
-# Long-Term Vision
+# Phase 10 — Developer Tools
 
-ItsOnePage is designed to become an open ecosystem where:
+Status:
 
-- creators publish templates,
-- users discover templates,
-- authors receive recognition,
-- websites remain fully owned by their owners.
+```text
+FUTURE
+```
 
-The project grows by expanding its community rather than increasing platform complexity.
+Possible tools:
+
+- Template validator
+- Manifest validator
+- Preview generator
+- Screenshot generator
+- Template packaging tool
+- CLI
+- Developer SDK
+
+---
+
+# Extensions
+
+```text
+Template Collections
+
+Localized Templates
+
+Theme Variants
+
+Additional Builder Layouts
+```
