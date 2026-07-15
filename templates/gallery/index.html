@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    >
+
+    <title>ItsOnePage Template Gallery</title>
+
+    <meta
+      name="description"
+      content="Discover official, community and marketplace one-page website templates."
+    >
+
+    <meta
+      name="robots"
+      content="noindex, nofollow"
+    >
+
+    <meta
+      name="theme-color"
+      content="#07111c"
+    >
+
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: #07111c;
+        color: #f4f8fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+        background: #07111c;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background:
+          radial-gradient(
+            circle at top,
+            #12344a,
+            #07111c 46%
+          );
+      }
+
+      main {
+        width: min(
+          1280px,
+          calc(100% - 32px)
+        );
+        margin: 0 auto;
+        padding: 64px 0;
+      }
+
+      header {
+        max-width: 780px;
+        margin-bottom: 36px;
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-size: clamp(
+          2.7rem,
+          7vw,
+          5rem
+        );
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+      }
+
+      header > p {
+        margin: 0;
+        color: #bdcad5;
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 22px;
+      }
+
+      .stat {
+        display: inline-flex;
+        gap: 7px;
+        align-items: center;
+        padding: 7px 11px;
+        border: 1px solid
+          rgb(114 220 239 / 20%);
+        border-radius: 999px;
+        color: #a9bbc8;
+        font-size: 0.82rem;
+      }
+
+      .stat strong {
+        color: #72dcef;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns:
+          repeat(
+            auto-fill,
+            minmax(260px, 1fr)
+          );
+        gap: 20px;
+        align-items: start;
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid
+          rgb(255 255 255 / 10%);
+        border-radius: 18px;
+        background:
+          rgb(6 20 32 / 88%);
+        box-shadow:
+          0 18px 50px
+          rgb(0 0 0 / 24%);
+        transition:
+          border-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .card:hover {
+        border-color:
+          rgb(114 220 239 / 30%);
+        box-shadow:
+          0 20px 55px
+          rgb(0 0 0 / 30%);
+      }
+
+      .media-link,
+      .card-placeholder {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .card-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 220ms ease;
+      }
+
+      .card:hover .card-image {
+        transform: scale(1.025);
+      }
+
+      .card-placeholder {
+        display: grid;
+        place-content: center;
+        gap: 8px;
+        padding: 24px;
+        background:
+          linear-gradient(
+            135deg,
+            #15394e,
+            #091723
+          );
+        text-align: center;
+      }
+
+      .card-placeholder strong {
+        font-size: 1.55rem;
+      }
+
+      .card-placeholder small,
+      .placeholder-label {
+        color: #9fb2c0;
+      }
+
+      .placeholder-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .card-content {
+        padding: 18px;
+      }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 13px;
+      }
+
+      .badges span {
+        padding: 4px 7px;
+        border: 1px solid
+          rgb(114 220 239 / 28%);
+        border-radius: 999px;
+        color: #72dcef;
+        font-size: 0.64rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        line-height: 1.25;
+      }
+
+      h2 a {
+        color: #f4f8fb;
+        text-decoration: none;
+      }
+
+      h2 a:hover {
+        color: #72dcef;
+      }
+
+      .author {
+        margin: 6px 0 14px;
+        color: #8295a4;
+        font-size: 0.86rem;
+      }
+
+      .author-link {
+        color: #72dcef;
+      }
+
+      .description {
+        display: -webkit-box;
+        min-height: 4.5em;
+        margin: 0 0 16px;
+        overflow: hidden;
+        color: #bdcad5;
+        font-size: 0.92rem;
+        line-height: 1.5;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+
+      .metadata {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 17px;
+        color: #8295a4;
+        font-size: 0.78rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 13px;
+        border: 1px solid
+          rgb(255 255 255 / 15%);
+        border-radius: 999px;
+        color: #f4f8fb;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        border-color: #72dcef;
+      }
+
+      .button-primary {
+        border-color: #72dcef;
+        background: #72dcef;
+        color: #07111c;
+      }
+
+      .button:focus-visible,
+      .media-link:focus-visible,
+      h2 a:focus-visible {
+        outline: 2px solid #72dcef;
+        outline-offset: 3px;
+      }
+
+      @media (min-width: 1180px) {
+        .gallery {
+          grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      @media (
+        min-width: 700px
+      ) and (
+        max-width: 1179px
+      ) {
+        .gallery {
+          grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 699px) {
+        main {
+          width: min(
+            100% - 20px,
+            520px
+          );
+          padding: 38px 0;
+        }
+
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .description {
+          min-height: auto;
+        }
+      }
+
+      @media (
+        prefers-reduced-motion: reduce
+      ) {
+        .card,
+        .card-image {
+          transition: none;
+        }
+
+        .card:hover .card-image {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>Template Gallery</h1>
+
+        <p>
+          Discover one-page website templates created by
+          ItsOnePage and its community.
+        </p>
+
+        <div
+          class="stats"
+          aria-label="Template statistics"
+        >
+          
+    <span class="stat">
+      All
+      <strong>1</strong>
+    </span>
+  
+    <span class="stat">
+      Official
+      <strong>1</strong>
+    </span>
+  
+    <span class="stat">
+      Community
+      <strong>0</strong>
+    </span>
+  
+    <span class="stat">
+      Marketplace
+      <strong>0</strong>
+    </span>
+  
+    <span class="stat">
+      Editor&#039;s Choice
+      <strong>1</strong>
+    </span>
+  
+        </div>
+      </header>
+
+      <section
+        class="gallery"
+        aria-label="Available templates"
+      >
+        
+    <article class="card">
+      
+      <a
+        class="card-placeholder"
+        href="/templates/official/beginning/"
+        aria-label="Open The Beginning"
+      >
+        <span class="placeholder-label">
+          official
+        </span>
+
+        <strong>
+          The Beginning
+        </strong>
+
+        <small>
+          by AFEOL
+        </small>
+      </a>
+    
+
+      <div class="card-content">
+        <div class="badges">
+          <span>official</span>
+          <span>free</span>
+          <span>Editor&#039;s Choice</span>
+        </div>
+
+        <h2>
+          <a href="/templates/official/beginning/">
+            The Beginning
+          </a>
+        </h2>
+
+        <p class="author">
+          by 
+      <a
+        class="author-link"
+        href="https://afeol.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        AFEOL
+      </a>
+    
+        </p>
+
+        <p class="description">
+          A lightweight, responsive and privacy-friendly starting point for a one-page website.
+        </p>
+
+        <div class="metadata">
+          <span>v0.1.0</span>
+          <span>MIT</span>
+        </div>
+
+        <div class="actions">
+          
+      <a
+        class="button"
+        href="/templates/official/beginning/"
+      >
+        Details
+      </a>
+    
+        <a
+          class="button button-primary"
+          href="https://beta-transparent.itsonepage.pages.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Live demo
+        </a>
+      
+        <a
+          class="button"
+          href="https://github.com/AfeolOrg/ItsOnePage"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Source
+        </a>
+      
+        </div>
+      </div>
+    </article>
+  
+      </section>
+    </main>
+  </body>
+</html>
